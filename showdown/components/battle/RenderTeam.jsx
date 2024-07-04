@@ -32,7 +32,12 @@ export default function RenderTeam() {
         mr: "auto",
       }}
     >
-      <Typography sx={{fontSize: '10px'}} variant="overline" display="block" gutterBottom>
+      <Typography
+        sx={{ fontSize: "10px", ml: 2 }}
+        variant="overline"
+        display="block"
+        gutterBottom
+      >
         Switch
       </Typography>
       <Grid container spacing={2}>
