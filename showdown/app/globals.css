@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.pokemon-container {
+    margin-top: 0.1rem;
+  }
+  .render-pokemon {
+    max-width: 4rem;
+  }
+  .player-pokemon {
+    position: relative;
+    left: 5.5rem;
+    bottom: 2.5rem;
+  }
+  .foe-pokemon {
+    position: relative;
+    left: 11rem;
+    bottom: 0.8rem;
+  }
+  .pokemon-details {
+    margin: 0;
+    font-size: xx-small;
+  }
+  .pokemon-details-container {
+    font-family: "Times New Roman", Times, serif;
+  }
+  .title {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .bg-img {
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b4f53ec3-b5bb-42db-9868-be27f9fe2abb/d4r6ruq-109bd6bb-94ce-4778-91aa-3111ca23d4b3.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2I0ZjUzZWMzLWI1YmItNDJkYi05ODY4LWJlMjdmOWZlMmFiYlwvZDRyNnJ1cS0xMDliZDZiYi05NGNlLTQ3NzgtOTFhYS0zMTExY2EyM2Q0YjMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.bXEbUs4kjs5QazSRHJeRqA094gTc4r2vuZhk0122F9M");
+    background-size: cover;
+    max-width: 17rem;
+    margin: 0 auto;
+    background-position-x: -1.6rem;
+    margin-top: 1rem;
+  }
+  .pokemon-details-patch {
+    color: cyan;
+  }
+  .display-pokemon{
+    max-width: 2rem;
+  }
+  @media (min-width: 899px) {
+    .title {
+      display: none;
+    }
+  }
+  @media (min-width: 600px) {
+    .render-pokemon {
+      max-width: 7rem;
+    }
+    .foe-pokemon {
+      position: relative;
+      left: 20%;
+    }
+    .pokemon-details {
+      margin: 0;
+      font-size: x-small;
+    }
+    .player-pokemon {
+      left: 11rem;
+      bottom: 1rem;
+    }
+    .foe-pokemon {
+      left: 21rem;
+      bottom: 0;
+    }
+    .bg-img {
+      max-width: 30rem;
+      background-position-x: 1px;
+      margin-top: 1.5rem;
+    }
+  }
+  .multiple-select {
+    width: 300px;
+  }
+  @media (max-width: 349px) {
+    .multiple-select {
+      width: 200px;
+    }
+  }
+  
