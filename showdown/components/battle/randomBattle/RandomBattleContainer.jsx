@@ -1,9 +1,16 @@
-import React from 'react'
+"use client";
+
+import React from "react";
+import Foe from "../Foe";
+import Player from "../Player";
 
 export default function RandomBattleContainer() {
   return (
-    <>
-      hi
-    </>
-  )
+    <div className="bg-img">
+      <div className="pokemon-container">
+        <Foe mode={"random"} />
+        <Player mode={"random"} />
+      </div>
+    </div>
+  );
 }

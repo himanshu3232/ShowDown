@@ -2,10 +2,16 @@ import React from "react";
 import HealthBar from "./HealthBar.jsx";
 import { useSelector } from "react-redux";
 
-export default function Foe() {
-  const foePokemon = useSelector((store) => store.foe.currPokemon.pokemon.pokemon);
+export default function Foe({ mode }) {
   let darkMode = useSelector((store) => store.darkMode.mode);
-  let HP = useSelector((store) => store.foe.currPokemon.hp)
+  let foePokemon;
+  let HP;
+  if (mode === "ou") {
+    foePokemon = useSelector(
+      (store) => store.foe.currPokemon.pokemon.pokemon
+    );
+    HP = useSelector((store) => store.foe.currPokemon.hp);
+  }
 
   return (
     <>
@@ -20,7 +26,7 @@ export default function Foe() {
           <p className="pokemon-details">Lvl: {foePokemon?.level}</p>
           <p className="pokemon-details">{foePokemon?.name}</p>
         </div>
-        <HealthBar HP={HP}/>
+        <HealthBar HP={HP} />
       </div>
       <img
         src={foePokemon?.img}
