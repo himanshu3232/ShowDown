@@ -2,12 +2,11 @@ import React from "react";
 import HealthBar from "../HealthBar";
 import { useSelector } from "react-redux";
 
-export default function Foe() {
+export default function Foe({ data, foeHP }) {
   let darkMode = useSelector((store) => store.darkMode.mode);
-  let foePokemon = useSelector(
-    (store) => store.foe.currPokemon.pokemon.pokemon
-  );
-  let HP = useSelector((store) => store.foe.currPokemon.hp);
+  let pokemonName = data?.name;
+  let hp = foeHP*100/data.hp;
+  let img = `https://courses.cs.washington.edu/courses/cse154/webservices/pokedex/sprites/${data.shortname}.png`;
 
   return (
     <>
@@ -19,13 +18,12 @@ export default function Foe() {
               : "pokemon-details-container"
           }
         >
-          <p className="pokemon-details">Lvl: {foePokemon?.level}</p>
-          <p className="pokemon-details">{foePokemon?.name}</p>
+          <p className="pokemon-details">{pokemonName}</p>
         </div>
-        <HealthBar HP={HP} />
+        <HealthBar HP={hp} />
       </div>
       <img
-        src={foePokemon?.img}
+        src={img}
         className="render-pokemon foe-pokemon"
         alt="Foe's pokemon"
       />
