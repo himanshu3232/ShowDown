@@ -17,28 +17,21 @@ const MenuProps = {
   },
 };
 
-const modes = ["Random Battle"];
+const modes = ["Random Battle", "OU Gen1"];
 
-function getStyles(name, personName, theme) {
+function getStyles(name, mode, theme) {
   return {
     fontWeight:
-      personName.indexOf(name) === -1
+      mode.indexOf(name) === -1
         ? theme.typography.fontWeightRegular
         : theme.typography.fontWeightMedium,
   };
 }
 
-export default function MultipleSelect() {
+export default function MultipleSelect({ mode, setMode }) {
   const theme = useTheme();
-  const [mode, setMode] = React.useState([]);
-
   const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setMode(
-      typeof value === "string" ? value.split(",") : value
-    );
+    setMode(event.target.value);
   };
 
   return (
@@ -51,7 +44,7 @@ export default function MultipleSelect() {
           multiple
           value={mode}
           onChange={handleChange}
-          input={<OutlinedInput label="Name" />}
+          input={<OutlinedInput label="Mode" />}
           MenuProps={MenuProps}
         >
           {modes.map((name) => (

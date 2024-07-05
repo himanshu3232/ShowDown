@@ -6,20 +6,19 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MultipleSelect from "./MultipleSelect";
-import Matching from "./Matching";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
 export default function MatchMaker() {
-  let mode = useSelector((store) => store.darkMode.mode);
-
+  let theme = useSelector((store) => store.darkMode.mode);
+  const [mode, setMode] = React.useState([]);
   return (
     <>
       <CssBaseline />
       <Container maxWidth="sm">
         <Box
           sx={{
-            bgcolor: mode === "light" ? "#cfe8fc" : "transparent",
+            bgcolor: theme === "light" ? "#cfe8fc" : "transparent",
             height: "50vh",
             mt: "2rem",
             display: "flex",
@@ -31,7 +30,7 @@ export default function MatchMaker() {
           }}
         >
           <Box sx={{ ml: "auto", mr: "auto" }}>
-            <MultipleSelect />
+            <MultipleSelect mode={mode} setMode={setMode} />
           </Box>
           <Button
             sx={{
@@ -43,7 +42,7 @@ export default function MatchMaker() {
             }}
             variant="outlined"
           >
-            <Link href="/battle">
+            <Link href={mode[0] === "Random Battle" ? '/randomBattle' : mode[0] === 'OU Gen1' ? '/ou' : '/'}>
               Start Battle!
             </Link>
           </Button>
