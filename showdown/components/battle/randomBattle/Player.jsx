@@ -1,5 +1,5 @@
 import React from "react";
-import HealthBar from "./HealthBar.jsx";
+import HealthBar from "../HealthBar";
 import { useSelector } from "react-redux";
 
 export default function Player() {

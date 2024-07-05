@@ -30,7 +30,7 @@ export default function MatchMaker() {
           }}
         >
           <Box sx={{ ml: "auto", mr: "auto" }}>
-            <MultipleSelect mode={mode} setMode={setMode} />
+            <MultipleSelect mode={mode} setMode= {setMode}/>
           </Box>
           <Button
             sx={{
@@ -42,7 +42,7 @@ export default function MatchMaker() {
             }}
             variant="outlined"
           >
-            <Link href={mode[0] === "Random Battle" ? '/randomBattle' : mode[0] === 'OU Gen1' ? '/ou' : '/'}>
+            <Link href={mode[0] === 'Random Battle' ? "/randomBattle" : mode[0] === 'OU Gen-1' ? "/battle" : '/'}>
               Start Battle!
             </Link>
           </Button>

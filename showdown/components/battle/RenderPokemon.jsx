@@ -5,8 +5,8 @@ import Player from "./Player";
 export default function RenderPokemon() {
   return (
     <div className="pokemon-container">
-      <Foe mode={'ou'}/>
-      <Player mode={'ou'}/>
+      <Foe/>
+      <Player/>
     </div>
   );
 }

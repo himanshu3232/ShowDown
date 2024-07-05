@@ -17,12 +17,12 @@ const MenuProps = {
   },
 };
 
-const modes = ["Random Battle", "OU Gen1"];
+const modes = ["Random Battle", "OU Gen-1"];
 
-function getStyles(name, mode, theme) {
+function getStyles(name, personName, theme) {
   return {
     fontWeight:
-      mode.indexOf(name) === -1
+      personName.indexOf(name) === -1
         ? theme.typography.fontWeightRegular
         : theme.typography.fontWeightMedium,
   };
@@ -31,7 +31,10 @@ function getStyles(name, mode, theme) {
 export default function MultipleSelect({ mode, setMode }) {
   const theme = useTheme();
   const handleChange = (event) => {
-    setMode(event.target.value);
+    const {
+      target: { value },
+    } = event;
+    setMode(typeof value === "string" ? value.split(",") : value);
   };
 
   return (
@@ -44,7 +47,7 @@ export default function MultipleSelect({ mode, setMode }) {
           multiple
           value={mode}
           onChange={handleChange}
-          input={<OutlinedInput label="Mode" />}
+          input={<OutlinedInput label="Name" />}
           MenuProps={MenuProps}
         >
           {modes.map((name) => (
