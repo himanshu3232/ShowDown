@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import Link from "next/link";
 
 const style = {
   position: "absolute" as "absolute",
@@ -14,6 +15,9 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 };
 
 export default function GameOver(props: any) {
@@ -29,22 +33,15 @@ export default function GameOver(props: any) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography
-            className="text-center"
-            id="modal-modal-title"
-            variant="h6"
-            component="h2"
-          >
+          <Typography id="modal-modal-title" variant="h6" component="h2">
             Game Over!
           </Typography>
-          <Typography
-            className="text-center"
-            id="modal-modal-description"
-            sx={{ mt: 2 }}
-          >
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {`You ${props.result}!`}
           </Typography>
-          
+          <Button className="mt-2" variant="contained">
+            <Link href={"/"}>Return Home</Link>
+          </Button>
         </Box>
       </Modal>
     </div>
