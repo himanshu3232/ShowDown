@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
-import { fetchData } from "@/app/randomBattle/page";
+import { fetchData } from "@/app/randomBattle/fetchData.js";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -35,8 +35,8 @@ export default function RenderAttacks({
         pid: pid,
         movename: attack.name,
       });
-      setFoeHP(res?.p2["current-hp"]);
-      setPlayerHP(res?.p1["current-hp"]);
+      await setFoeHP(res?.p2["current-hp"]);
+      await setPlayerHP(res?.p1["current-hp"]);
       console.log(res);
     }
   };
