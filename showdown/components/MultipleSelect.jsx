@@ -17,7 +17,7 @@ const MenuProps = {
   },
 };
 
-const modes = ["Random Battle", "OU Gen-1"];
+const modes = ["Random Battle"]; //"OU Gen-1"
 
 function getStyles(name, personName, theme) {
   return {

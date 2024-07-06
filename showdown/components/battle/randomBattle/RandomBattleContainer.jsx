@@ -1,17 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Foe from "./Foe";
 import Player from "./Player";
 import RenderAttacks from "../RenderAttacks";
 import GameOver from "./GameOver";
+import { fetchData } from "@/app/randomBattle/fetchData";
 
-export default function RandomBattleContainer({ data }) {
-  const [playerHP, setPlayerHP] = React.useState(data?.p1.hp);
-  const [foeHP, setFoeHP] = React.useState(data?.p2.hp);
+export default function RandomBattleContainer() {
+  const [playerHP, setPlayerHP] = useState(0);
+  const [foeHP, setFoeHP] = useState(0);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      const result = await fetchData({ initiate: true });
+      setData(result);
+      setPlayerHP(result.p1.hp);
+      setFoeHP(result.p2.hp);
+    };
+    getData();
+  }, []);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
-      {(foeHP === 0 || setFoeHP === 0) && <GameOver result={foeHP === 0 ? "Win" : "Lose"}/>}
+      {(foeHP === 0 || playerHP === 0) && (
+        <GameOver result={foeHP === 0 ? "Win" : "Lose"} />
+      )}
       <div className="bg-img">
         <div className="pokemon-container">
           <Foe data={data?.p2} foeHP={foeHP} />
