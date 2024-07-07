@@ -22,13 +22,11 @@ const style = {
 
 export default function GameOver(props: any) {
   const [open, setOpen] = React.useState(true);
-  const handleClose = () => setOpen(false);
 
   return (
     <div>
       <Modal
         open={open}
-        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

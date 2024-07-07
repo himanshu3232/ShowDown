@@ -1,9 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import ListPokemon from "./ListPokemon";
-import Link from "next/link";
 
 const style = {
   position: "absolute" as "absolute",
@@ -31,16 +29,6 @@ export default function ChoosePokemon({ pokemon }: { pokemon: string[] }) {
       >
         <Box sx={style}>
           <ListPokemon pokemon={pokemon} />
-          <Button
-            sx={{
-              maxWidth: "10rem",
-              maxHeight: "5rem",
-              mt: "1rem",
-            }}
-            variant="outlined"
-          >
-            <Link href="/randomBattle">Start Battle!</Link>
-          </Button>
         </Box>
       </Modal>
     </>

@@ -19,7 +19,9 @@ export default function SelectMode({
   return (
     <>
       <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-standard-label">Mode</InputLabel>
+        <InputLabel id="demo-simple-select-standard-label">
+          Select Mode
+        </InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
@@ -27,11 +29,10 @@ export default function SelectMode({
           onChange={handleChange}
           label="Age"
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           {modes.map((m) => (
-            <MenuItem key={m} value={m}>{m}</MenuItem>
+            <MenuItem key={m} value={m}>
+              {m}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>

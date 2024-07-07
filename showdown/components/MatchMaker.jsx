@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MultipleSelect from "./SelectMode";
+import SelectMode from "./SelectMode";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import pokemonList from "../pokemon/random_battle/fetchPokemon.js";
@@ -42,7 +42,7 @@ export default function MatchMaker() {
           }}
         >
           <Box sx={{ ml: "auto", mr: "auto" }}>
-            <MultipleSelect mode={mode} setMode={setMode} />
+            <SelectMode mode={mode} setMode={setMode} />
           </Box>
           <Button
             sx={{
