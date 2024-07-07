@@ -2,7 +2,9 @@
 
 Pokemon and Showdown has been a part of my teenage-hood. This project is my attempt to remake that vision I have from my point of view and how we can have fun competitive pokemon battle in a simple environment.
 
-Live Link: https://pokemon-showdown-seven.vercel.app/
+Showdown uses nextJS for server-side logic and React components for client side.
+
+Live Link: https://showdown-chi.vercel.app/
 
 ## Table of Contents
 

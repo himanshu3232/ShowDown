@@ -35,6 +35,9 @@ export default function SetUserName({
     if (username.length === 0) {
       alert("Username cannot be empty");
       return;
+    } else if (username.length === 21) {
+      alert("Username cannot exceed 20 characters");
+      return;
     }
     setOpen(false);
     dispatch(setUserName(username));
@@ -50,7 +53,7 @@ export default function SetUserName({
       >
         <Box sx={style}>
           <TextField
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value.trim())}
             id="outlined-basic"
             label="Choose Name"
             variant="outlined"
