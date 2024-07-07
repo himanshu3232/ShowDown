@@ -6,24 +6,35 @@ import Player from "./Player";
 import RenderAttacks from "../RenderAttacks";
 import GameOver from "./GameOver";
 import { fetchData } from "@/app/randomBattle/fetchData";
+import CircularProgressBar from "../../CircularProgressBar";
+import { Box } from "@mui/material";
+import { useSelector } from "react-redux";
 
 export default function RandomBattleContainer() {
   const [playerHP, setPlayerHP] = useState(0);
   const [foeHP, setFoeHP] = useState(0);
   const [data, setData] = useState(null);
+  const pokemon = useSelector((s) => s.randomBattlePokemon);
 
   useEffect(() => {
     const getData = async () => {
-      const result = await fetchData({ initiate: true });
+      const result = await fetchData({ initiate: true, pokemon: pokemon });
       setData(result);
       setPlayerHP(result.p1.hp);
       setFoeHP(result.p2.hp);
     };
+
     getData();
-  }, []);
+  }, [pokemon]);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <Box sx={{ mt: "38vh", maxWidth: "5rem", ml: "auto", mr: "auto" }}>
+          <CircularProgressBar />
+        </Box>
+      </>
+    );
   }
   return (
     <>

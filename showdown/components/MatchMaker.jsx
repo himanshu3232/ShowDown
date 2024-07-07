@@ -5,15 +5,27 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import MultipleSelect from "./MultipleSelect";
+import MultipleSelect from "./SelectMode";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import pokemonList from "../pokemon/random_battle/fetchPokemon.js";
+import ChoosePokemon from "./ChoosePokemon";
 
 export default function MatchMaker() {
   let theme = useSelector((store) => store.darkMode.mode);
-  const [mode, setMode] = React.useState([]);
+  const [mode, setMode] = React.useState("");
+  const [pokemon, setPokemon] = React.useState([]);
+  React.useEffect(() => {
+    const getData = async () => {
+      const result = await pokemonList();
+      const arr = result.split("\n");
+      setPokemon(arr);
+    };
+    getData();
+  }, []);
   return (
     <>
+      {mode === "Random Battle" && <ChoosePokemon pokemon={pokemon} />}
       <CssBaseline />
       <Container maxWidth="sm">
         <Box
@@ -30,7 +42,7 @@ export default function MatchMaker() {
           }}
         >
           <Box sx={{ ml: "auto", mr: "auto" }}>
-            <MultipleSelect mode={mode} setMode= {setMode}/>
+            <MultipleSelect mode={mode} setMode={setMode} />
           </Box>
           <Button
             sx={{
@@ -42,7 +54,15 @@ export default function MatchMaker() {
             }}
             variant="outlined"
           >
-            <Link href={mode[0] === 'Random Battle' ? "/randomBattle" : mode[0] === 'OU Gen-1' ? "/battle" : '/'}>
+            <Link
+              href={
+                mode === "Random Battle"
+                  ? "/randomBattle"
+                  : mode === "OU Gen-1"
+                  ? "/battle"
+                  : "/"
+              }
+            >
               Start Battle!
             </Link>
           </Button>

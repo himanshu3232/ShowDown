@@ -1,9 +1,11 @@
+import FeatureComingSoon from "@/components/FeatureComingSoon";
 import BattleZoneContainer from "../../components/battle/BattleZoneContainer";
 
 export default function page() {
   return (
     <>
-      <BattleZoneContainer />
+      <FeatureComingSoon />
+      {/*<BattleZoneContainer />*/}
     </>
   );
 }

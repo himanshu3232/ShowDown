@@ -1,4 +1,4 @@
-import { pokemon } from "../../pokemon/pokemon.js";
+import { pokemon } from "../../pokemon/ou/pokemon.js";
 
 const foePokemonName = "Bulbasaur";
 const currPokemon = pokemon.filter(

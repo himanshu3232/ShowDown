@@ -22,29 +22,17 @@ function LinearProgressWithLabel(props) {
 }
 
 LinearProgressWithLabel.propTypes = {
-  /**
-   * The value of the progress indicator for the determinate and buffer variants.
-   * Value between 0 and 100.
-   */
+
   value: PropTypes.number.isRequired,
 };
 
 export default function HealthBar({ HP }) {
-  // const [HP, setHP] = React.useState(value);
 
-  // React.useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setHP((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 10));
-  //   }, 800);
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-  // }, []);
 
   return (
     <Box sx={{ width: "100%" }}>
       <LinearProgressWithLabel
-        value={HP} /* switch to useState if facing problems in the future */
+        value={HP} 
       />
     </Box>
   );

@@ -3,10 +3,10 @@
 import axios from "axios";
 import FormData from "form-data";
 
-export const fetchData = async ({ initiate, guid, pid, movename }) => {
+export const fetchData = async ({ initiate, guid, pid, movename, pokemon }) => {
   const formData = new FormData();
   if (initiate) {
-    formData.append("mypokemon", "pikachu");
+    formData.append("mypokemon", pokemon);
     formData.append("startgame", "true");
   } else {
     formData.append("guid", guid);
