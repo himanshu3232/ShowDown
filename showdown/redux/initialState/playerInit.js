@@ -45,8 +45,9 @@ let playerTeam = [
 ];
 
 const player = {
-  name: "",
+  name: "Choose Name",
   team: playerTeam,
+  loginStatus: false,
   currPokemon: {
     pokemon: playerTeam[0],
     hp: playerTeam[0].hp,
