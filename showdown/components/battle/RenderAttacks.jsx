@@ -37,7 +37,6 @@ export default function RenderAttacks({
       });
       await setFoeHP(res?.p2["current-hp"]);
       await setPlayerHP(res?.p1["current-hp"]);
-      console.log(res);
     }
   };
   return (

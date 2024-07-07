@@ -30,7 +30,7 @@ export default function RandomBattleContainer() {
   if (!data) {
     return (
       <>
-        <Box sx={{ mt: "38vh", maxWidth: "5rem", ml: "auto", mr: "auto" }}>
+        <Box sx={{ mt: "38vh", maxWidth: "2rem", ml: "auto", mr: "auto" }}>
           <CircularProgressBar />
         </Box>
       </>
