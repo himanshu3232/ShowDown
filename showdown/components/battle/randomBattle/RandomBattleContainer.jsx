@@ -9,11 +9,13 @@ import { fetchData } from "@/app/randomBattle/fetchData";
 import CircularProgressBar from "../../CircularProgressBar";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
+import RenderResults from "../../RenderResults";
 
 export default function RandomBattleContainer() {
   const [playerHP, setPlayerHP] = useState(0);
   const [foeHP, setFoeHP] = useState(0);
   const [data, setData] = useState(null);
+  const [result, setResult] = useState(null);
   const pokemon = useSelector((s) => s.randomBattlePokemon);
 
   useEffect(() => {
@@ -36,6 +38,7 @@ export default function RandomBattleContainer() {
       </>
     );
   }
+
   return (
     <>
       {(foeHP === 0 || playerHP === 0) && (
@@ -47,6 +50,9 @@ export default function RandomBattleContainer() {
           <Player data={data?.p1} playerHP={playerHP} />
         </div>
       </div>
+      <div className="bg-white max-w-fit ml-auto mr-auto">
+        <RenderResults results={result} />
+      </div>
       <RenderAttacks
         attacks={data?.p1.moves}
         guid={data?.guid}
@@ -54,6 +60,7 @@ export default function RandomBattleContainer() {
         mode={"random"}
         setPlayerHP={setPlayerHP}
         setFoeHP={setFoeHP}
+        setResult={setResult}
       />
     </>
   );

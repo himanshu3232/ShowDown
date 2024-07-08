@@ -22,6 +22,7 @@ export default function RenderAttacks({
   mode,
   setFoeHP,
   setPlayerHP,
+  setResult,
 }) {
   const ouModeAttacks = useSelector(
     (store) => store.player.currPokemon.pokemon.pokemon.attacks
@@ -37,6 +38,7 @@ export default function RenderAttacks({
       });
       await setFoeHP(res?.p2["current-hp"]);
       await setPlayerHP(res?.p1["current-hp"]);
+      await setResult(res?.results);
     }
   };
   return (

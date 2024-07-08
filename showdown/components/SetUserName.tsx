@@ -35,7 +35,7 @@ export default function SetUserName({
     if (username.length === 0) {
       alert("Username cannot be empty");
       return;
-    } else if (username.length === 21) {
+    } else if (username.length > 17) {
       alert("Username cannot exceed 20 characters");
       return;
     }
